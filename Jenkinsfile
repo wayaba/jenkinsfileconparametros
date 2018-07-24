@@ -96,9 +96,9 @@ pipeline {
 			{
 			
 				steps {
-					def hola = ${params.env}
+					
 					script {
-						echo hola
+						echo $params.env
 						//loadProperties('${params.env}')
 						//echo "Later one ${properties.puerto}"
 						}
