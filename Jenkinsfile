@@ -11,7 +11,7 @@ def loadProperties() {
     node {
         checkout scm
         properties = readProperties file: 'desa.properties'
-        echo "Immediate one ${properties.repo}"
+        echo "Immediate one ${properties.url}"
     }
 }
 
@@ -96,7 +96,7 @@ pipeline {
 				steps {
 					script {
 						loadProperties()
-						echo "Later one ${properties.branch}"
+						echo "Later one ${properties.puerto}"
 						}
 				}
 			
