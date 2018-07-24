@@ -7,7 +7,7 @@
 properties = null
 
 
-def loadProperties(String env) {
+def loadProperties(String env='tuvieja') {
     node {
         checkout scm
 		echo "Immediate one ${env}"
@@ -97,7 +97,7 @@ pipeline {
 			
 				steps {
 					script {
-						loadProperties(${params.env})
+						loadProperties()
 						//echo "Later one ${properties.puerto}"
 						}
 				}
