@@ -11,8 +11,9 @@ def loadProperties(String env='tuvieja') {
     node {
         checkout scm
 		echo "Archivo leido ${env}.properties"
+		def envFile = "${env}.properties"
         //properties = readProperties file: '${env}.properties'
-		properties = readProperties file: 'desa.properties'
+		properties = readProperties file: envFile
         echo "valor url:  ${properties.url}"
 		echo "valor puerto: ${properties.puerto}"
     }
