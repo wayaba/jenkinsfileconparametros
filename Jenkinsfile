@@ -1,14 +1,16 @@
 #!/bin/bash
 
+
+//CLAVEEE INSTALAR ESTE PLUGIN
+//Pipeline Utility Steps
+
 properties = null
 
 
 def loadProperties() {
     node {
         checkout scm
-        properties = new Properties()
-        File propertiesFile = new File("desa.properties")
-        properties.load(propertiesFile.newDataInputStream())
+        properties = readProperties file: 'desa.properties'
         echo "Immediate one ${properties.repo}"
     }
 }
