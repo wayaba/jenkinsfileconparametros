@@ -79,11 +79,12 @@ pipeline {
 			
 				steps{
 					script{
-							def props = readProperties  file:'/desa.properties'
-							def Var1= props['url']
-							def Var2= props['puerto']
-							echo "Var1=${Var1}"
-							echo "Var2=${Var2}"
+							echo pwd;
+							def props = readProperties  file:'desa.properties';
+							def Var1= props['url'];
+							def Var2= props['puerto'];
+							echo "Var1=${Var1}";
+							echo "Var2=${Var2}";
 						}
 					}
 			
