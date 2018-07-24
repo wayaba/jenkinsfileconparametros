@@ -10,7 +10,7 @@ properties = null
 def loadProperties(String env) {
     node {
         checkout scm
-        properties = readProperties file: '{$env}.properties'
+        properties = readProperties file: '${env}.properties'
         echo "Immediate one ${properties.url}"
     }
 }
