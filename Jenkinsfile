@@ -98,7 +98,7 @@ pipeline {
 				steps {
 					
 					script {
-						echo $params.env
+						echo $env
 						//loadProperties('${params.env}')
 						//echo "Later one ${properties.puerto}"
 						}
