@@ -10,8 +10,9 @@ properties = null
 def loadProperties(String env) {
     node {
         checkout scm
-        properties = readProperties file: '${env}.properties'
-        echo "Immediate one ${properties.url}"
+		echo "Immediate one ${env}"
+        //properties = readProperties file: '${env}.properties'
+        //echo "Immediate one ${properties.url}"
     }
 }
 
@@ -97,7 +98,7 @@ pipeline {
 				steps {
 					script {
 						loadProperties(${params.env})
-						echo "Later one ${properties.puerto}"
+						//echo "Later one ${properties.puerto}"
 						}
 				}
 			
