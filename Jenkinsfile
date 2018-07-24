@@ -7,10 +7,10 @@
 properties = null
 
 
-def loadProperties() {
+def loadProperties(String env) {
     node {
         checkout scm
-        properties = readProperties file: 'desa.properties'
+        properties = readProperties file: '{$env}.properties'
         echo "Immediate one ${properties.url}"
     }
 }
@@ -28,6 +28,7 @@ pipeline {
 		string(name: 'workspacesdir', defaultValue: '/var/jenkins_home/workspace/spockTesting', description: '')
 		string(name: 'barname', defaultValue: '/var/jenkins_home/workspace/bar/apimascotas2.bar', description: '')
 		string(name: 'appname', defaultValue: 'ApiMascotas', description: '')
+		string(name: 'env', defaultValue: 'desa', description: '')
     }
 
 	stages {
@@ -95,7 +96,7 @@ pipeline {
 			
 				steps {
 					script {
-						loadProperties()
+						loadProperties(${params.env})
 						echo "Later one ${properties.puerto}"
 						}
 				}
