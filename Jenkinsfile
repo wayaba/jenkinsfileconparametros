@@ -29,7 +29,7 @@ pipeline {
 		string(name: 'workspacesdir', defaultValue: '/var/jenkins_home/workspace/spockTesting', description: '')
 		string(name: 'barname', defaultValue: '/var/jenkins_home/workspace/bar/apimascotas2.bar', description: '')
 		string(name: 'appname', defaultValue: 'ApiMascotas', description: '')
-		string(name: 'env', defaultValue: 'desa', description: '')
+		string(name: 'environment', defaultValue: 'desa', description: '')
     }
 
 	stages {
@@ -98,7 +98,7 @@ pipeline {
 				steps {
 					
 					script {
-						echo $env
+						echo environment
 						//loadProperties('${params.env}')
 						//echo "Later one ${properties.puerto}"
 						}
