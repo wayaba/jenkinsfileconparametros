@@ -1,4 +1,18 @@
 #!/bin/bash
+
+properties = null
+
+
+def loadProperties() {
+    node {
+        checkout scm
+        properties = new Properties()
+        File propertiesFile = new File("desa.properties")
+        properties.load(propertiesFile.newDataInputStream())
+        echo "Immediate one ${properties.repo}"
+    }
+}
+
 pipeline {
 
 	agent any
@@ -77,16 +91,12 @@ pipeline {
 			stage('Test')
 			{
 			
-				steps{
-					script{
-							echo pwd;
-							def props = readProperties  file:'desa.properties';
-							def Var1= props['url'];
-							def Var2= props['puerto'];
-							echo "Var1=${Var1}";
-							echo "Var2=${Var2}";
+				steps {
+					script {
+						loadProperties()
+						echo "Later one ${properties.branch}"
 						}
-					}
+				}
 			
 				
 			}
